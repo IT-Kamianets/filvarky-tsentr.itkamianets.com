@@ -1,0 +1,16 @@
+<svg width="512" height="512" viewBox="55 55 400 370" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#2D3A3A">
+    <path d="M220 80 h72 v340 h-72 Z" />
+    <path d="M60 420 L100 150 h80 L200 420 Z" />
+    <path d="M452 420 L412 150 h-80 L312 420 Z" />
+    <path fill-rule="evenodd" d="M256 160 c-70 0 -120 50 -120 110 s50 110 120 110 s120 -50 120 -110 s-50 -110 -120 -110 Z M256 200 c-45 0 -80 35 -80 70 s35 70 80 70 s80 -35 80 -70 s-35 -70 -80 -70 Z" />
+  </g>
+  <g fill="#C5A059">
+    <path d="M210 60 h92 v30 h-92 Z" />
+    <path d="M90 130 h100 v30 h-100 Z" />
+    <path d="M322 130 h100 v30 h-100 Z" />
+    <rect x="235" y="150" width="42" height="60" rx="5" />
+    <rect x="135" y="240" width="35" height="50" rx="5" />
+    <rect x="342" y="240" width="35" height="50" rx="5" />
+  </g>
+</svg>
