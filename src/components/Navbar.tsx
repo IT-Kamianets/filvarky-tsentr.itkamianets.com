@@ -10,7 +10,7 @@ const Nav = styled(motion.nav) <{ $scrolled: boolean }>`
   width: 100%;
   z-index: 1000;
   padding: ${({ $scrolled }) => ($scrolled ? '1rem 2rem' : '1.5rem 2rem')};
-  background: ${({ $scrolled, theme }) => ($scrolled ? theme.colors.glass : 'transparent')};
+  background: ${({ $scrolled, theme }) => ($scrolled ? theme.colors.glass : 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)')};
   backdrop-filter: ${({ $scrolled }) => ($scrolled ? 'blur(10px)' : 'none')};
   transition: all 0.3s ease;
   display: flex;
@@ -23,13 +23,15 @@ const Nav = styled(motion.nav) <{ $scrolled: boolean }>`
   }
 `;
 
-const Logo = styled.div`
+const Logo = styled.div<{ $scrolled: boolean }>`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: 1.5rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ $scrolled, theme }) => ($scrolled ? theme.colors.primary : theme.colors.white)};
   letter-spacing: 1px;
   cursor: pointer;
+  transition: color 0.3s ease;
+  text-shadow: ${({ $scrolled }) => ($scrolled ? 'none' : '0 2px 10px rgba(0,0,0,0.3)')};
   
   span {
     color: ${({ theme }) => theme.colors.secondary};
@@ -45,11 +47,13 @@ const NavLinks = styled.div`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled.a<{ $scrolled: boolean }>`
   font-weight: 500;
   font-size: 0.95rem;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ $scrolled, theme }) => ($scrolled ? theme.colors.primary : theme.colors.white)};
   position: relative;
+  transition: color 0.3s ease;
+  text-shadow: ${({ $scrolled }) => ($scrolled ? 'none' : '0 1px 5px rgba(0,0,0,0.3)')};
 
   &::after {
     content: '';
@@ -82,11 +86,10 @@ const BookingBtn = styled(motion.button)`
   }
 `;
 
-
-
-const MobileMenuBtn = styled.button`
+const MobileMenuBtn = styled.button<{ $scrolled: boolean }>`
   display: none;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ $scrolled, theme }) => ($scrolled ? theme.colors.primary : theme.colors.white)};
+  transition: color 0.3s ease;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
     display: block;
@@ -157,13 +160,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
   return (
     <>
       <Nav $scrolled={scrolled}>
-        <Logo>
+        <Logo $scrolled={scrolled}>
           ФІЛЬВАРКИ<span>ЦЕНТР</span>
         </Logo>
 
         <NavLinks>
           {navItems.map((item) => (
-            <NavLink key={item.name} href={item.href}>
+            <NavLink key={item.name} href={item.href} $scrolled={scrolled}>
               {item.name}
             </NavLink>
           ))}
@@ -177,7 +180,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
           Забронювати
         </BookingBtn>
 
-        <MobileMenuBtn onClick={() => setIsOpen(true)}>
+        <MobileMenuBtn $scrolled={scrolled} onClick={() => setIsOpen(true)}>
           <Menu size={28} />
         </MobileMenuBtn>
       </Nav>
@@ -206,6 +209,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   style={{ fontSize: '1.5rem' }}
+                  $scrolled={true}
                 >
                   {item.name}
                 </NavLink>

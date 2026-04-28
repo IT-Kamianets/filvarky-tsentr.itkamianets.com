@@ -83,7 +83,7 @@ function App() {
       <Navbar onOpenBookingModal={() => setIsBookingModalOpen(true)} />
       <main>
         <Hero onOpenBookingModal={() => setIsBookingModalOpen(true)} />
-        <Rooms />
+        <Rooms onOpenBookingModal={() => setIsBookingModalOpen(true)} />
         <Services />
         <Gallery />
         {/* Additional sections can be added here */}
