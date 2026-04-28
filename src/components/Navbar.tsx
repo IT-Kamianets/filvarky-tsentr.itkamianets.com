@@ -82,7 +82,7 @@ const BookingBtn = styled(motion.button)`
   }
 `;
 
-const BOOKING_URL = "https://www.booking.com/searchresults.uk.html?dest_id=1094283&highlighted_hotels=1094283&dest_type=hotel&checkin=2026-07-20&checkout=2026-07-21&group_adults=2&req_adults=2&show_room=109428301_87372418_2_1_0&lang=uk&selected_currency=UAH&exrt=1.00000000&ext_price_total=1057.00&ext_price_tax=0.00&xfc=UAH&hca=m&group_children=0&req_children=0&&no_rooms=1&ts=1777248705&edgtid=1i2jddZPRt69tpdTLZEFDw&efpc=EFewChBXsAp5&utm_source=metagha&utm_medium=mapresults&utm_campaign=UA&utm_term=hotel-1094283&utm_content=dev-desktop_los-1_bw-83_dow-Monday_defdate-1_room-0_gstadt-2_rateid-public_aud-0_gacid-_mcid-10_ppa-0_clrid-0_ad-0_gstkid-0_checkin-20260720_ppt-&aid=2428387&label=metagha-link-MRUA-hotel-1094283_dev-desktop_los-1_bw-83_dow-Monday_defdate-1_room-0_gstadt-2_rateid-public_aud-0_gacid-_mcid-10_ppa-0_clrid-0_ad-0_gstkid-0_checkin-20260720_ppt-";
+
 
 const MobileMenuBtn = styled.button`
   display: none;
