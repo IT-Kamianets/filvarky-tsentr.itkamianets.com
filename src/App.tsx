@@ -108,12 +108,6 @@ const ContactValue = styled.p`
   font-weight: 400;
 `;
 
-const ContactValueSub = styled.p`
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
-  margin-top: 0.15rem;
-`;
 
 
 const ContactLink = styled.a`
