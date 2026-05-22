@@ -7,7 +7,8 @@
       "Bash(node -e ' *)",
       "Bash(npm list *)",
       "Bash(where npx *)",
-      "Bash(del contact-section.png full-page.png contact-crop.png full-hd.png)"
+      "Bash(del contact-section.png full-page.png contact-crop.png full-hd.png)",
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\Kristina\\\\work\\\\filvarky-tsentr.itkamianets.com\\\\src\\\\assets\\\\hero-bg.png\" \"c:\\\\Users\\\\Kristina\\\\work\\\\filvarky-tsentr.itkamianets.com\\\\public\\\\og-image.png\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\Kristina\\work\\filvarky-tsentr.itkamianets.com"
