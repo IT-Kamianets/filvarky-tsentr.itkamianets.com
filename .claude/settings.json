@@ -8,7 +8,9 @@
       "Bash(npm list *)",
       "Bash(where npx *)",
       "Bash(del contact-section.png full-page.png contact-crop.png full-hd.png)",
-      "PowerShell(Copy-Item \"c:\\\\Users\\\\Kristina\\\\work\\\\filvarky-tsentr.itkamianets.com\\\\src\\\\assets\\\\hero-bg.png\" \"c:\\\\Users\\\\Kristina\\\\work\\\\filvarky-tsentr.itkamianets.com\\\\public\\\\og-image.png\")"
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\Kristina\\\\work\\\\filvarky-tsentr.itkamianets.com\\\\src\\\\assets\\\\hero-bg.png\" \"c:\\\\Users\\\\Kristina\\\\work\\\\filvarky-tsentr.itkamianets.com\\\\public\\\\og-image.png\")",
+      "PowerShell(\\(Get-Item \"c:\\\\Users\\\\Kristina\\\\work\\\\filvarky-tsentr.itkamianets.com\\\\public\\\\og-image.png\"\\).Length / 1MB)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"https://filvarky-tsentr.itkamianets.com/og-image.png\" -Method Head -TimeoutSec 10; \"Status: $\\($r.StatusCode\\), Size: $\\($r.Headers['Content-Length']\\) bytes\" } catch { \"Error: $_\" })"
     ],
     "additionalDirectories": [
       "c:\\Users\\Kristina\\work\\filvarky-tsentr.itkamianets.com"
