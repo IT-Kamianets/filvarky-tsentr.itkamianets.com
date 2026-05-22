@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(npx playwright *)",
+      "Bash(node -e ' *)",
+      "Bash(npm list *)",
+      "Bash(where npx *)",
+      "Bash(del contact-section.png full-page.png contact-crop.png full-hd.png)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Kristina\\work\\filvarky-tsentr.itkamianets.com"
+    ]
+  }
+}
