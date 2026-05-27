@@ -10,10 +10,9 @@ import gallery4 from '../assets/gallery4.jpg';
 import gallery5 from '../assets/gallery5.jpg';
 import gallery6 from '../assets/gallery6.jpg';
 import gallery7 from '../assets/gallery7.jpg';
-import gallery8 from '../assets/gallery8.jpg';
 
 const galleryImages = [
-  gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8
+  gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7
 ];
 
 const GallerySection = styled.section`
