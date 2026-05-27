@@ -71,6 +71,15 @@ const NavLink = styled.a<{ $scrolled: boolean }>`
   }
 `;
 
+const NavBtns = styled.div`
+  display: flex;
+  gap: 0.75rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    display: none;
+  }
+`;
+
 const BookingBtn = styled(motion.button)`
   background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
@@ -80,10 +89,17 @@ const BookingBtn = styled(motion.button)`
   font-size: 0.9rem;
   cursor: pointer;
   border: none;
-  
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    display: none;
-  }
+`;
+
+const BookingBtnOutline = styled(motion.button)`
+  background: transparent;
+  border: 2px solid ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
 `;
 
 const MobileMenuBtn = styled.button<{ $scrolled: boolean }>`
@@ -123,9 +139,10 @@ const Overlay = styled(motion.div)`
 
 interface NavbarProps {
   onOpenBookingModal: () => void;
+  onBook: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
+const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal, onBook }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -172,13 +189,22 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
           ))}
         </NavLinks>
 
-        <BookingBtn
-          onClick={onOpenBookingModal}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Забронювати
-        </BookingBtn>
+        <NavBtns>
+          <BookingBtn
+            onClick={onOpenBookingModal}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Бронювати онлайн
+          </BookingBtn>
+          <BookingBtnOutline
+            onClick={onBook}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Бронювати
+          </BookingBtnOutline>
+        </NavBtns>
 
         <MobileMenuBtn $scrolled={scrolled} onClick={() => setIsOpen(true)}>
           <Menu size={28} />
@@ -223,8 +249,16 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBookingModal }) => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Забронювати
+                Бронювати онлайн
               </BookingBtn>
+              <BookingBtnOutline
+                onClick={onBook}
+                style={{ display: 'block', width: '100%' }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Бронювати
+              </BookingBtnOutline>
             </MobileMenu>
           </>
         )}

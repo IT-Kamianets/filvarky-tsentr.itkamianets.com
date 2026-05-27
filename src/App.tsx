@@ -9,6 +9,7 @@ import Services from './features/Services';
 import Gallery from './features/Gallery';
 import ScrollToTop from './components/ScrollToTop';
 import BookingModal from './components/BookingModal';
+import ContactModal from './components/ContactModal';
 
 const Footer = styled.footer`
   background: ${({ theme }) => theme.colors.accent};
@@ -150,14 +151,17 @@ const Copyright = styled.div`
 
 function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  const handleBook = () => setIsContactModalOpen(true);
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Navbar onOpenBookingModal={() => setIsBookingModalOpen(true)} />
+      <Navbar onOpenBookingModal={() => setIsBookingModalOpen(true)} onBook={handleBook} />
       <main>
-        <Hero onOpenBookingModal={() => setIsBookingModalOpen(true)} />
-        <Rooms onOpenBookingModal={() => setIsBookingModalOpen(true)} />
+        <Hero onOpenBookingModal={() => setIsBookingModalOpen(true)} onBook={handleBook} />
+        <Rooms onOpenBookingModal={() => setIsBookingModalOpen(true)} onBook={handleBook} />
         <Services />
         <Gallery />
       </main>
@@ -232,6 +236,10 @@ function App() {
       <BookingModal
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
+      />
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
       />
     </ThemeProvider>
   );

@@ -121,11 +121,27 @@ const RoomDesc = styled.p`
   flex-grow: 1;
 `;
 
+const BtnRow = styled.div`
+  display: flex;
+  gap: 0.75rem;
+`;
+
 const BookBtn = styled(motion.button)`
-  width: 100%;
+  flex: 1;
   padding: 0.8rem;
   background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 0.9rem;
+`;
+
+const BookBtnOutline = styled(motion.button)`
+  flex: 1;
+  padding: 0.8rem;
+  background: transparent;
+  border: 2px solid ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
   font-weight: 600;
   border-radius: 6px;
   font-size: 0.9rem;
@@ -173,9 +189,10 @@ const roomsData = [
 
 interface RoomsProps {
   onOpenBookingModal: () => void;
+  onBook: () => void;
 }
 
-const Rooms: React.FC<RoomsProps> = ({ onOpenBookingModal }) => {
+const Rooms: React.FC<RoomsProps> = ({ onOpenBookingModal, onBook }) => {
   const [visibleCount, setVisibleCount] = useState(3);
 
   const handleLoadMore = () => {
@@ -222,13 +239,22 @@ const Rooms: React.FC<RoomsProps> = ({ onOpenBookingModal }) => {
               </PriceGrid>
               <RoomDesc>{room.desc}</RoomDesc>
             </div>
-            <BookBtn 
-              onClick={onOpenBookingModal}
-              whileHover={{ opacity: 0.9 }} 
-              whileTap={{ scale: 0.98 }}
-            >
-              Бронювати
-            </BookBtn>
+            <BtnRow>
+              <BookBtn
+                onClick={onOpenBookingModal}
+                whileHover={{ opacity: 0.9 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Бронювати онлайн
+              </BookBtn>
+              <BookBtnOutline
+                onClick={onBook}
+                whileHover={{ opacity: 0.8 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Бронювати
+              </BookBtnOutline>
+            </BtnRow>
           </RoomCard>
         ))}
       </Grid>

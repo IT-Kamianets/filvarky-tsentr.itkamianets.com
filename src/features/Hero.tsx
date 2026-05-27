@@ -86,13 +86,27 @@ const SecondaryBtn = styled(motion.a)`
   text-align: center;
 `;
 
+const OutlineBtn = styled(motion.button)`
+  background: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.primary};
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: none;
+`;
+
 
 
 interface HeroProps {
   onOpenBookingModal: () => void;
+  onBook: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
+const Hero: React.FC<HeroProps> = ({ onOpenBookingModal, onBook }) => {
   return (
     <HeroSection id="home">
       <Content>
@@ -120,8 +134,15 @@ const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
             whileHover={{ scale: 1.05, backgroundColor: '#d4af37' }}
             whileTap={{ scale: 0.95 }}
           >
-            Бронювати зараз
+            Бронювати онлайн
           </PrimaryBtn>
+          <OutlineBtn
+            onClick={onBook}
+            whileHover={{ scale: 1.05, backgroundColor: '#d4af37' }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Бронювати
+          </OutlineBtn>
           <SecondaryBtn
             href="#rooms"
             whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
